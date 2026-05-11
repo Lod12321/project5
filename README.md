@@ -10,7 +10,6 @@ Github Link:
 - `script.js`: Game logic, map setup, location bounds, answer checking, scoring, and quiz reset.
 - `maps-loader.js`: Loads the Google Maps JavaScript API using the local API key config.
 - `config.example.js`: Example config file showing where the API key goes.
-- `.env.example`: Example environment file for the Google Maps API key.
 - `README.md`: Project summary, requirements, and Google Maps features used.
 
 ## Requirements 
@@ -72,23 +71,46 @@ When the user double-clicks the map, Google Maps provides the clicked position a
 
 ## How to Run
 
-1. Create a local `config.js` file from `config.example.js`.
-2. Put your Google Maps API key in `config.js`.
-3. Open `index.html` in Chrome.
-4. Read the location name shown at the bottom of the page.
-5. Double-click where you think the location is on the map.
-6. Continue until all five questions are completed.
+1. Clone or download the repository.
+2. Create a Google Maps API key in Google Cloud Console.
+3. Enable the Maps JavaScript API for that key.
+4. Copy `config.example.js` and rename the copy to `config.js`.
+5. Replace `YOUR_API_KEY_HERE` in `config.js` with your own API key.
+6. Open `index.html` in Chrome.
+7. Read the location name shown at the bottom of the page.
+8. Double-click where you think the location is on the map.
+9. Continue until all five questions are completed.
+
+Example `config.js`:
+
+```js
+window.GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY_HERE';
+```
 
 ## API Key Setup
 
-The demo API key is no longer hardcoded in `index.html`. The project uses local ignored files for the real key:
+The API key is not hardcoded in `index.html`. The project uses a local ignored file for the real key:
 
-- `.env`
 - `config.js`
 
-Both files are listed in `.gitignore` so the real key is not committed with the project. The repository includes `.env.example` and `config.example.js` as safe templates.
+`config.js` is listed in `.gitignore` so the real key is not committed with the project. The repository includes `config.example.js` as a safe template.
 
 Because this is a browser-based Google Maps project, the API key is still visible to the browser when the map loads. The correct way to protect it is to restrict the key in Google Cloud Console by allowed websites and enabled APIs.
+
+Recommended key restrictions:
+
+- Application restriction: Websites
+- Allowed websites for local testing: `http://localhost/*` and `http://127.0.0.1/*`
+- API restriction: Maps JavaScript API only
+
+If the project is deployed with GitHub Pages, add the GitHub Pages URL to the allowed websites list.
+
+## If the Map Does Not Load
+
+- Confirm that `config.js` exists in the project folder.
+- Confirm that `config.js` contains a real Google Maps API key.
+- Confirm that the Maps JavaScript API is enabled for the key.
+- Check that the key's website restrictions allow the page URL you are using.
 
 ## Notes
 
