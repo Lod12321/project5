@@ -309,8 +309,14 @@ function restartQuiz() {
     promptNextLocation();
 }
 
-// Initialize game on page load
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize game once the page and Google Maps API are ready
+function startGame() {
     document.getElementById('restart-btn').addEventListener('click', restartQuiz);
     initMap();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startGame);
+} else {
+    startGame();
+}
