@@ -8,6 +8,9 @@ Github Link:
 - `index.html`: Page structure and Google Maps API script.
 - `style.css`: Layout, colors, feedback popup, modal, and responsive styling.
 - `script.js`: Game logic, map setup, location bounds, answer checking, scoring, and quiz reset.
+- `maps-loader.js`: Loads the Google Maps JavaScript API using the local API key config.
+- `config.example.js`: Example config file showing where the API key goes.
+- `.env.example`: Example environment file for the Google Maps API key.
 - `README.md`: Project summary, requirements, and Google Maps features used.
 
 ## Requirements 
@@ -69,10 +72,23 @@ When the user double-clicks the map, Google Maps provides the clicked position a
 
 ## How to Run
 
-1. Open `index.html` in Chrome.
-2. Read the location name shown at the bottom of the page.
-3. Double-click where you think the location is on the map.
-4. Continue until all five questions are completed.
+1. Create a local `config.js` file from `config.example.js`.
+2. Put your Google Maps API key in `config.js`.
+3. Open `index.html` in Chrome.
+4. Read the location name shown at the bottom of the page.
+5. Double-click where you think the location is on the map.
+6. Continue until all five questions are completed.
+
+## API Key Setup
+
+The demo API key is no longer hardcoded in `index.html`. The project uses local ignored files for the real key:
+
+- `.env`
+- `config.js`
+
+Both files are listed in `.gitignore` so the real key is not committed with the project. The repository includes `.env.example` and `config.example.js` as safe templates.
+
+Because this is a browser-based Google Maps project, the API key is still visible to the browser when the map loads. The correct way to protect it is to restrict the key in Google Cloud Console by allowed websites and enabled APIs.
 
 ## Notes
 
