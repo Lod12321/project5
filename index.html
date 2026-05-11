@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSUN Map Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Game Bar -->
+    <div class="game-bar">
+        <div class="game-bar-left">
+            <h1 class="game-title">🗺️ CSUN MAP QUIZ</h1>
+        </div>
+        <div class="game-bar-right">
+            <div class="score-display">
+                <span class="score-label">Score:</span>
+                <span class="score-value" id="current-score">0/5</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Map -->
+        <div class="map-container">
+            <div id="map"></div>
+            <!-- Celebration confetti container -->
+            <div id="confetti-container"></div>
+        </div>
+    </div>
+
+    <!-- Bottom Interaction Bar -->
+    <div class="interaction-bar">
+        <div class="interaction-content">
+            <div class="question-info">
+                <span class="question-label">Find:</span>
+                <span class="question-text" id="current-location">Select a location</span>
+            </div>
+            <div class="instruction-text">
+                <span id="bottom-instruction">Double-click on the map to answer</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Score Modal -->
+    <div id="score-modal" class="score-modal" style="display: none;">
+        <div class="score-modal-content">
+            <h2>Quiz Complete!</h2>
+            <div class="final-score-display">
+                <div id="final-score-text"></div>
+            </div>
+            <button id="restart-btn" class="restart-button">🎮 Play Again</button>
+        </div>
+    </div>
+
+    <!-- Feedback Popup -->
+    <div id="feedback-popup" class="feedback-popup"></div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 
+        IMPORTANT: Replace 'YOUR_API_KEY_HERE' with your actual Google Maps API key
+        Get your key from: https://console.cloud.google.com/
+        See README.md for setup instructions
+    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6pnLxz1g9yyn8ZkviH0J8U09DZRs9RHA"></script>
+    <script src="script.js"></script>
+</body>
+</html>
