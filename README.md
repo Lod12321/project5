@@ -1,7 +1,7 @@
 # Project 5: Google Maps Quiz
 
-Live Link:
-Github Link:
+Live Pages Link: https://lod12321.github.io/project5/
+Github Link: https://github.com/Lod12321/project5.git
 
 ## Deliverables
 
